@@ -1,0 +1,17 @@
+### Tables specifics
+
+# tables_mu_theta
+
+Tables on which we performed the training, and that we used to perform our first tests of identification
+
+mu: "1" "1.4444" "1.8889" "2.3333" "2.7778" "3.2222" "3.6667" "4.1111" "4.5556" "5"  
+
+theta: "0"       "0.33069" "0.66139" "0.99208" "1.3228"  "1.6535"  "1.9842"  "2.3149"  "2.6456"         "2.9762"  "3.3069"  "3.6376"  "3.9683"  "4.299"   "4.6297"  "4.9604"  "5.2911"         "5.6218"  "5.9525"  "6.2832" 
+
+# tables_mu_theta_test
+
+Tables with unseen values of mu and theta on the training data; in order to test the effectiveness of our identification code and model on unseen solutions
+
+mu: "2" "3"
+
+theta: "1"    "4.45"

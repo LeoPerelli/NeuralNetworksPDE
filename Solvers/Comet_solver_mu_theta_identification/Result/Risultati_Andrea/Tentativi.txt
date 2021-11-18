@@ -1,0 +1,151 @@
+##########################
+#
+# Identifications results
+#
+##########################
+
+
+##########################
+# Attempt 01
+
+mu_vero    = 1.00
+theta_vero = 0.0000
+
+mu_0    = 5.
+theta_0 = np.pi
+
+mu_f    = 0.9992862764684668
+theta_f = 6.2979316823398
+
+
+Commenti:
+
+È una funzione presa dal training set, quindi era facile che funzionasse. Abbiamo ottenuto 2pi al posto di 0 per theta, ma questo è coerente, considerando come abbiamo trainato il modello e il significato fisico di theta.
+
+##########################
+# Attempt 02
+
+mu_vero    = 2.3333
+theta_vero = 3.3069
+
+mu_0    = 5.
+theta_0 = 2*np.pi
+
+mu_f    = 2.3406482809527596
+theta_f = 3.323239676377107
+
+
+Commenti:
+
+Un'altra funzione presa dal training. Le performances sono molto buone anche senza loss sulla PDE
+
+##########################
+# Attempt 03
+
+mu_vero    = 2.3333
+theta_vero = 3.3069
+
+mu_0    = 5.
+theta_0 = 2*np.pi
+
+mu_f    = 2.3425629744288567
+theta_f = 3.3234010559842573
+
+
+Commenti:
+
+È la stessa funzione di Attempt 02, con in più PDE e bc (weight = 1 per tutti). Le performances peggiorano leggermente, perché forse il nostro modello ha imparato meglio la soluzione numerica, che in generale non rispetta alla perfezione l'equazione
+
+##########################
+# Attempt 04
+
+04.01
+
+mu_vero    = 3
+theta_vero = 4.45
+
+mu_0    = 1
+theta_0 = 3
+
+mu_f    = 3.137338779949203
+theta_f = 4.481961251306942
+
+04.02
+
+mu_vero    = 3
+theta_vero = 4.45
+
+mu_0    = 3
+theta_0 = 4.45
+
+mu_f    = 3.138032921321989
+theta_f = 4.481982815175829
+
+04.03
+
+mu_vero    = 3
+theta_vero = 4.45
+
+mu_0    = 3
+theta_0 = 1
+
+mu_f    =  4.092807368819234
+theta_f = -1.043055590465147
+
+
+Commenti:
+
+I parametri incogniti non sono stati estratti dal training set, quindi si può considerare un vero caso applicativo. Le performances sono peggiori, rispetto che al caso del training set. Tuttavia i risultati non sono troppo lontani dai valori veri. Ci possono essere minimi locali, quindi in una vera applicazione sarebbe il caso di usare multiple random starts
+
+##########################
+# Attempt 05
+
+05.01
+
+mu_vero    = 2
+theta_vero = 1
+
+mu_0    = 2
+theta_0 = 1
+
+mu_f    = 2.0908660519072164
+theta_f = 0.9913078824605036
+
+05.02
+
+mu_vero    = 2
+theta_vero = 1
+
+mu_0    = 5
+theta_0 = 0
+
+mu_f    = 2.0908660519072146
+theta_f = 0.9913078824604974
+
+05.03
+
+mu_vero    = 2
+theta_vero = 1
+
+mu_0    = 1
+theta_0 = 4
+
+mu_f    = 2.2540104440971995
+theta_f = 6.79168055456465
+
+
+Commenti:
+
+Ancora è necessario partire da una soluzione che sia vicina al parametro vero, oppure usare multiple random start. Notiamo che la qualità della soluzione è molto migliore che in 04. Infatti, il parametro mu e theta veri sono più vicini ai parametri usati nel training e validation set del training diretto, quindi ci aspettiamo che la stima sia più accurata. Se raddoppiassimo i parametro usati, probabilmente avremmo risultati più accurati nel range considerato.
+
+
+
+##########################
+# Attempt 06
+
+mu_vero    = 1.444
+theta_vero = 0.66139
+
+Commenti:
+
+Qua ho plottato tutte le loss. Osserviamo che le loss sulla fit hanno un loro senso. Le loss sulla PDE e su BC sembrano piatte. Per la PDE, il motivo è che la rete neurale non 'vede' i dati per calcolarla, quindi la loss è solo un'indicazione della qualità della rete neurale per quel valore dei parametri.

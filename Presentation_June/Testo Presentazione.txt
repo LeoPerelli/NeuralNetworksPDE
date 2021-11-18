@@ -1,0 +1,5 @@
+
+Parte Leo:
+To use NN as ROM we train the network to output the solution given the spatial points and the parameters of the problem. 
+Training a neural network this way however would still be only an approximation problem, only data driven. The solution of the neural network will almost certainly loose any properties that the true solution has, and will not be consistent. But we know much more about the problem, because we know that there is a PDE behind. The idea behind PINNs, physics informed neural networks, is to include 2 new terms in the loss function, which are the PDE residual of the solution and the BC residual. This way we are enforcing the physics of the problem, because the solution will be penalised if it doesn't satisfy boundary conditions and the PDE.
+Our finals goals are to try to understand if this physics approach helps to improve the solution, or if the data driven approach is enough. Moreover we want to investigate how to fix the weights in the loss function, and finally to asses the accuracy of solutions.
