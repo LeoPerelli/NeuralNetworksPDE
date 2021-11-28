@@ -1,0 +1,26 @@
+#####################################
+#PRETRAINED MODEL
+
+n_mu_train    = 5
+n_theta_train = 10
+
+
+rete:       dense(20) -> dense(20) -> dense(20)
+activation: tanh
+
+
+normalization: si
+weights: fit 1 | PDE 1 | BC 1
+
+
+adam(lr 1e-3): n_epoch= 1000
+BFGS:          n_epoch= 9000
+
+
+Losses: loss = 2.356e-05 | fit: 2.934e-03^2  PDE: 3.292e-03^2  BC: 2.029e-03^2   
+			|| fit: 2.782e-03^2  PDE: 3.141e-03^2  BC: 1.910e-03^2  
+
+
+commenti: 
+
+È un modello proveniente da Config_2. Non ho usato la sottogriglia, e ho usato la tabella ristretta di mu e theta. Questo ci serve per avere un modello funzionante per il nostro solver diretto.
